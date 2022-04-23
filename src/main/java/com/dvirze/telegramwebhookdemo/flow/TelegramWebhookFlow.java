@@ -22,7 +22,7 @@ public class TelegramWebhookFlow {
   IntegrationFlow inboundFlow(MessageToResponse messageToResponse,
                               TelegramGateway telegramGateway) {
     return IntegrationFlows.from(
-            WebFlux.inboundGateway("/test")
+            WebFlux.inboundGateway("/webhook")
                 .requestMapping(m -> m.methods(HttpMethod.POST))
                 .statusCodeFunction(r -> HttpStatus.OK))
         .transform(Transformers.fromJson(Update.class))
